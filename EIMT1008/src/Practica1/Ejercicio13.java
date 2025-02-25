@@ -8,8 +8,8 @@ public class Ejercicio13 {
         prueba("hola como estas", 5, null);
         prueba("  hola como estas", 1, "hola");
         prueba("  hola como estas", 2, "como");
-        //System.out.println("Longitud : " + "  hola  como  estas ".length());
-        //prueba("  hola  como  estas ", 3, "estas");
+        prueba("  hola  como  estas ", 3, "estas");
+        prueba("  hola  como  estas        ", 3, "estas");
     }
 
     public static String obtenerPalabra(String cadena, int numero){
@@ -20,7 +20,7 @@ public class Ejercicio13 {
             int contPalabras = 0;
             int recorrerCadena = 0;
             String crearPalabra = "";
-            while ((recorrerCadena <= cadena.length())) {
+            while ((recorrerCadena < cadena.length())) {
                 if (recorrerCadena != 0) {
                     if (cadena.charAt(recorrerCadena - 1) == ' ' && cadena.charAt(recorrerCadena) != ' ') {
                         contPalabras++;
