@@ -20,7 +20,7 @@ public class Ejercicio13 {
             int contPalabras = 0;
             int recorrerCadena = 0;
             String crearPalabra = "";
-            while ((recorrerCadena < cadena.length())) {
+            while ((recorrerCadena < cadena.length()) && (crearPalabra.isEmpty())) {
                 if (recorrerCadena != 0) {
                     if (cadena.charAt(recorrerCadena - 1) == ' ' && cadena.charAt(recorrerCadena) != ' ') {
                         contPalabras++;
