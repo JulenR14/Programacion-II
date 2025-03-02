@@ -52,7 +52,7 @@ public class Ejercicio18 {
         if (Arrays.equals(resultado, esperado)){
             System.out.println(": ok");
         }else{
-            System.out.format(": ERROR, valor esperado : %s\n", Arrays.toString(resultado));
+            System.out.format(": ERROR, valor esperado : %s\n", Arrays.toString(esperado));
         }
     }
 }
