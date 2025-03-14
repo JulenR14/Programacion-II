@@ -1,7 +1,6 @@
-package practica2;
+package practica2.Ejercicios1234;
 
 import java.util.Locale;
-import java.util.Objects;
 
 public class Punto {
     //Parametros que forman el punto

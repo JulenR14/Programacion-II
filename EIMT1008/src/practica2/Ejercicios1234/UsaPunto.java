@@ -1,4 +1,4 @@
-package practica2;
+package practica2.Ejercicios1234;
 
 import java.util.Arrays;
 
@@ -30,5 +30,18 @@ public class UsaPunto {
         System.out.println("v1 es " + Arrays.toString(v1));
         System.out.println("v2 es " + Arrays.toString(v2));
         System.out.println("¿Arrays.equals(v1, v2)? " + Arrays.equals(v1, v2));  // Debe ser true
+
+        System.out.println();
+        Restaurante restaurante1 = new Restaurante("Casa Julen", new Punto(), 5);
+        Restaurante restaurante2 = new Restaurante("Casa Julen", new Punto(3,0), 5);
+
+        System.out.println("Distancia entre " + restaurante1 + " y " + restaurante2 + " -> " + restaurante1.distancia(restaurante2.getPunto()));
+
+        System.out.println("Restaurantes del fichero restaurantes.txt");
+
+        Restaurante[] restaurantes = Restaurante.leeRestaurantes("src/practica2/Ejercicios1234/restaurantes.txt");
+        for (Restaurante restaurante : restaurantes){
+            System.out.println(restaurante +"\n");
+        }
     }
 }
