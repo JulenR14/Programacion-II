@@ -35,13 +35,14 @@ public class UsaPunto {
         Restaurante restaurante1 = new Restaurante("Casa Julen", new Punto(), 5);
         Restaurante restaurante2 = new Restaurante("Casa Julen", new Punto(3,0), 5);
 
-        System.out.println("Distancia entre " + restaurante1 + " y " + restaurante2 + " -> " + restaurante1.distancia(restaurante2.getPunto()));
+        System.out.println("Distancia entre " + restaurante1 + " y " + restaurante2 + " -> " + restaurante1.distancia(restaurante2.getPosicion()));
 
         System.out.println("Restaurantes del fichero restaurantes.txt");
 
-        Restaurante[] restaurantes = Restaurante.leeRestaurantes("src/practica2/Ejercicios1234/restaurantes.txt");
+        Restaurante[] restaurantes = Restaurante.leeRestaurantes("Datos/restaurantes.txt");
+        System.out.println();
         for (Restaurante restaurante : restaurantes){
-            System.out.println(restaurante +"\n");
+            System.out.println(restaurante);
         }
     }
 }

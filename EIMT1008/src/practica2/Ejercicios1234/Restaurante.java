@@ -20,7 +20,7 @@ public class Restaurante {
     public String getNombre() {
         return nombre;
     }
-    public Punto getPunto() {
+    public Punto getPosicion() {
         return posicion;
     }
     public int getValoracion() {
