@@ -1,5 +1,7 @@
 package practica2.Ejercicio5;
 
+import java.util.Calendar;
+
 public class Fecha {
     private int dia,mes,year;
 
@@ -82,5 +84,28 @@ public class Fecha {
             case 4,6,9,11 -> dias = 30;
         }
         return dias;
+    }
+
+    public static Fecha hoy(){
+        Calendar calendario = Calendar.getInstance();
+        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+        int mes = calendario.get(Calendar.MONTH) +1;
+        int año = calendario.get(Calendar.YEAR);
+        return new Fecha(dia, mes, año);
+    }
+
+    public Fecha díaSiguiente(){
+        Fecha nuevaFecha;
+        if (díasMes(this.mes, this.year) == this.dia){
+            if(this.mes==12){
+                nuevaFecha = new Fecha(1,1,this.year+1);
+            }else{
+                nuevaFecha = new Fecha(1,this.mes+1,this.year);
+            }
+        }else{
+            nuevaFecha = new Fecha(this.dia+1, this.mes, this.year);
+        }
+
+        return nuevaFecha;
     }
 }

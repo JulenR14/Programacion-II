@@ -34,7 +34,7 @@ public class UsaFecha {
         System.out.print("¿Último elemento del vector mayor que el primero? ");
         System.out.println(fechas[fechas.length - 1].compareTo(fechas[0]) > 0);  // Debe ser true
 
-      /**  // Usamos el método estático hoy
+        // Usamos el método estático hoy
         f1 = Fecha.hoy();
 
         // Usamos el método díaSiguiente
@@ -55,7 +55,6 @@ public class UsaFecha {
         for (int mes = 1; mes <= 12; mes++)
             días[mes - 1] = Fecha.díasMes(mes, 2025);  // Año no bisiesto
         System.out.println("Días de cada mes (año 2025): " + Arrays.toString(días));
-       **/
 
     }
 
