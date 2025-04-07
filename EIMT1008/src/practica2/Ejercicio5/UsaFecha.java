@@ -3,7 +3,7 @@ package practica2.Ejercicio5;
 import java.util.Arrays;
 
 public class UsaFecha {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExcepcionFechaNoValida {
         // Usamos el constructor con 3 parámetros
         Fecha f1 = new Fecha(10, 3, 2025);
 
@@ -66,7 +66,7 @@ public class UsaFecha {
     }
 
     // Crea un vector de fechas ordenado de más antigua a más reciente
-    private static Fecha[] crearVector() {
+    private static Fecha[] crearVector() throws ExcepcionFechaNoValida{
         return new Fecha[]{new Fecha(21, 10, 2024), new Fecha(4, 11, 2024), new Fecha(11, 11, 2024),
                 new Fecha(11, 11, 2024), new Fecha(18, 11, 2024), new Fecha(25, 11, 2024),
                 new Fecha(2, 12, 2024), new Fecha(9, 12, 2024), new Fecha(16, 12, 2024),

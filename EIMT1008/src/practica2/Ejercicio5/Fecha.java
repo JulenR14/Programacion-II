@@ -4,11 +4,17 @@ import java.util.Calendar;
 
 public class Fecha {
     private int dia,mes,year;
+    public static final int PRIMER_AÑO = 1800;
+    public static final int ÚLTIMO_AÑO = 2500;
 
-    public Fecha(int dia, int mes, int year) {
+    public Fecha(int dia, int mes, int year) throws ExcepcionFechaNoValida {
         this.dia = dia;
         this.mes = mes;
-        this.year = year;
+        if (year <= PRIMER_AÑO || year > ÚLTIMO_AÑO) {
+            throw new ExcepcionFechaNoValida();
+        }else{
+            this.year = year;
+        }
     }
 
     public Fecha(Fecha fecha){
@@ -87,25 +93,35 @@ public class Fecha {
     }
 
     public static Fecha hoy(){
+        Fecha hoy = null;
         Calendar calendario = Calendar.getInstance();
         int dia = calendario.get(Calendar.DAY_OF_MONTH);
         int mes = calendario.get(Calendar.MONTH) +1;
         int año = calendario.get(Calendar.YEAR);
-        return new Fecha(dia, mes, año);
+        try{
+            hoy = new Fecha(dia, mes, año);
+        }catch (ExcepcionFechaNoValida ex){
+            System.out.println("La fecha de hoy no es correcta.");
+        }
+        return hoy;
     }
 
     public Fecha díaSiguiente(){
         Fecha nuevaFecha;
-        if (díasMes(this.mes, this.year) == this.dia){
-            if(this.mes==12){
-                nuevaFecha = new Fecha(1,1,this.year+1);
+        try{
+            if (díasMes(this.mes, this.year) == this.dia){
+                if(this.mes==12){
+                    nuevaFecha = new Fecha(1,1,this.year+1);
+                }else{
+                    nuevaFecha = new Fecha(1,this.mes+1,this.year);
+                }
             }else{
-                nuevaFecha = new Fecha(1,this.mes+1,this.year);
+                nuevaFecha = new Fecha(this.dia+1, this.mes, this.year);
             }
-        }else{
-            nuevaFecha = new Fecha(this.dia+1, this.mes, this.year);
+        }catch (ExcepcionFechaNoValida ex){
+            System.out.println("No hay dia siguiente.");
+            nuevaFecha = null;
         }
-
         return nuevaFecha;
     }
 }
