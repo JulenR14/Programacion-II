@@ -1,4 +1,4 @@
-package practica2.Ejercicio5;
+package practica2.Ejercicio56;
 
 public class ExcepcionFechaNoValida extends Exception{
     public ExcepcionFechaNoValida(){}
