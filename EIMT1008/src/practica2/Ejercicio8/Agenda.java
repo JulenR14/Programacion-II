@@ -1,32 +1,64 @@
 package practica2.Ejercicio8;
 
+import java.util.Arrays;
+
 public class Agenda {
     private Tarea[] tareas;
-    private int cantidadDeTareas;
 
     public Agenda(){
-        cantidadDeTareas = 0;
-        tareas = new Tarea[cantidadDeTareas];
+        tareas = new Tarea[0];
     }
 
-    int posiciónInserción(Tarea tarea){
-        int posicion = -1;
+    private int posiciónInserción(Tarea tarea){
+        int posicion = 0;
+        while(posicion < tareas.length && (tareas[posicion].getFecha().compareTo(tarea.getFecha()) <= 0)){
+            posicion++;
+        }
+        return posicion;
+    }
 
-        int contador = 0;
-        boolean posicionEncontrada = false;
-        while(contador < tareas.length && !posicionEncontrada){
-            if(tareas[contador].getFecha().compareTo(tarea.getFecha()) <= 0){
-                contador++;
+    public void añadir(Tarea tarea){
+        int posicionAñadir = posiciónInserción(tarea);
+        Tarea[] nuevaLista = new Tarea[tareas.length + 1];
+
+        for (int i=0; i<nuevaLista.length;i++){
+            if(i<posicionAñadir){
+                nuevaLista[i] = tareas[i];
+            }else if(i==posicionAñadir){
+                nuevaLista[i] = tarea;
             }else{
-                posicion = contador;
-                posicionEncontrada = true;
+                nuevaLista[i] = tareas[i-1];
             }
         }
+        tareas = nuevaLista;
+    }
 
-        if(!posicionEncontrada){
-            posicion = tareas.length + 1;
+    public int cantidad(){
+        return tareas.length;
+    }
+
+    public Tarea[] consultar(Fecha fecha){
+        int cantidadTareas = 0;
+        int posicion = 0;
+        while (posicion < tareas.length && tareas[posicion].getFecha().compareTo(fecha) <= 0){
+            if(tareas[posicion].getFecha().compareTo(fecha) == 0){
+                cantidadTareas++;
+            }
+            posicion++;
         }
+        Tarea[] tareasFecha = new Tarea[cantidadTareas];
 
-        return posicion;
+        posicion = 0;
+        while (posicion < tareas.length && tareas[posicion].getFecha().compareTo(fecha) <= 0){
+            if(tareas[posicion].getFecha().compareTo(fecha) == 0){
+                tareasFecha[tareasFecha.length - cantidadTareas--] = tareas[posicion];
+            }
+            posicion++;
+        }
+        return tareasFecha;
+    }
+
+    public String toString(){
+        return Arrays.toString(tareas);
     }
 }
