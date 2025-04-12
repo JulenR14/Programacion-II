@@ -74,7 +74,15 @@ public class Agenda {
        tareas = nuevaLista;
     }
 
+    public void borrar(){
+        borrarPasadas(Fecha.hoy());
+    }
+
     public String toString(){
-        return Arrays.toString(tareas);
+        String stringTareas = "";
+        for (Tarea tarea: tareas) {
+            stringTareas += tarea + "\n";
+        }
+        return stringTareas;
     }
 }
