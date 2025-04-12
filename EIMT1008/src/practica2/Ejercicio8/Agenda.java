@@ -58,6 +58,22 @@ public class Agenda {
         return tareasFecha;
     }
 
+    public void borrarPasadas(Fecha fecha){
+       int contador = tareas.length - 1;
+       while (contador >= 0 && tareas[contador].getFecha().compareTo(fecha) >= 0){
+           contador--;
+       }
+       contador++;
+
+       Tarea[] nuevaLista = new Tarea[tareas.length - contador];
+       contador = tareas.length - 1 ;
+       for(int i= nuevaLista.length-1; i >= 0; i--){
+           nuevaLista[i] = tareas[contador--];
+       }
+
+       tareas = nuevaLista;
+    }
+
     public String toString(){
         return Arrays.toString(tareas);
     }
