@@ -10,6 +10,10 @@ public class ListaCadenasEnlaceSimple implements ListaCadenas{
             this.siguiente = siguiente;
             this.cadena = cadena;
         }
+
+        public String toString(){
+            return cadena;
+        }
     }
 
     private int talla;
@@ -40,20 +44,20 @@ public class ListaCadenasEnlaceSimple implements ListaCadenas{
         if (i < 0 || i > size()){
             throw  new IndexOutOfBoundsException();
         }
-
-
         Nodo nuevo;
-        Nodo anterior = null;
-        Nodo aux = primero;
-        int contador = 0;
         boolean agregado = false;
-        while (contador < size() && !agregado){
-            if (i == 0){
-                nuevo = new Nodo(primero,s);
+        int contadorPosiciones = 0;
+        for(Nodo cont = primero; cont != null && !agregado; cont=cont.siguiente){
+            if(i==0){
+                nuevo = new Nodo(primero, s);
                 primero = nuevo;
+                agregado = true;
+            }else if (i-1 == contadorPosiciones){
+                nuevo = new Nodo(cont.siguiente, s);
+                cont.siguiente = nuevo;
+                agregado = true;
             }
-
-            contador++;
+            contadorPosiciones++;
         }
     }
 
@@ -100,5 +104,18 @@ public class ListaCadenasEnlaceSimple implements ListaCadenas{
     @Override
     public int size() {
         return talla;
+    }
+
+    public String toString(){
+        String cadena = "[";
+        for(Nodo cont = primero; cont != null; cont = cont.siguiente){
+            if(cont.siguiente != null){
+                cadena += cont.cadena + ", ";
+            }else{
+                cadena += cont.cadena;
+            }
+        }
+        cadena += "]";
+        return cadena;
     }
 }
