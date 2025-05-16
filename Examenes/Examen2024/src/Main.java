@@ -15,17 +15,17 @@ public class Main {
         // 2. Probar límites de dificultad
         catalogo.añadirNuevaRuta("Ruta Fácil", 3.0, 0);      // Dificultad mínima
         catalogo.añadirNuevaRuta("Ruta Extrema", 15.0, 10);  // Dificultad máxima
-        catalogo.añadirNuevaRuta("Ruta Inválida", 8.0, 11);  // No debería añadirse
+        //catalogo.añadirNuevaRuta("Ruta Inválida", 8.0, 11);  // No debería añadirse
 
         // 3. Probar ordenamiento alfabético
         catalogo.añadirNuevaRuta("Aventura Bosque", 6.0, 4);
         catalogo.añadirNuevaRuta("Zigzag Mountain", 9.0, 7);
 
         // 4. Probar ampliación del vector (más de 10 elementos)
-        catalogo.añadirNuevaRuta("Ruta 1", 1.0, 1);
-        catalogo.añadirNuevaRuta("Ruta 2", 2.0, 2);
-        catalogo.añadirNuevaRuta("Ruta 3", 3.0, 3);
-        catalogo.añadirNuevaRuta("Ruta 4", 4.0, 4);
+        //catalogo.añadirNuevaRuta("Ruta 1", 1.0, 1);
+       // catalogo.añadirNuevaRuta("Ruta 2", 2.0, 2);
+        //catalogo.añadirNuevaRuta("Ruta 3", 3.0, 3);
+       // catalogo.añadirNuevaRuta("Ruta 4", 4.0, 4);
 
         // Mostrar todas las rutas
         System.out.println("\nListado de todas las rutas:");

@@ -12,7 +12,23 @@ public class CatalogoRutas {
         if(dificultad >= 0 && dificultad <= 10){
             Ruta nuevaRuta = new Ruta(nombreRuta, distancia, dificultad);
 
-            if (cantidad == 0){
+            int posicionAgregar = 0;
+            while(posicionAgregar < cantidad && (vector[posicionAgregar].nombre.compareTo(nombreRuta) <= 0)){
+                posicionAgregar++;
+            }
+
+            if(cantidad < vector.length){
+               for(int i = cantidad; i >= 0; i--){
+                   if(i > posicionAgregar){
+                       vector[i] = vector[i-1];
+                   }else if( i == posicionAgregar){
+                       vector[i] = nuevaRuta;
+                   }
+               }
+               cantidad++;
+            }
+
+            /*if (cantidad == 0){
                 vector[0] = nuevaRuta;
                 cantidad++;
             }else{
@@ -41,7 +57,7 @@ public class CatalogoRutas {
                     }
                     cantidad++;
                 }
-            }
+            }*/
         }
     }
 
