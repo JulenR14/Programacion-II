@@ -52,10 +52,12 @@ public class ListaCadenasEnlaceSimple implements ListaCadenas{
                 nuevo = new Nodo(primero, s);
                 primero = nuevo;
                 agregado = true;
+                talla++;
             }else if (i-1 == contadorPosiciones){
                 nuevo = new Nodo(cont.siguiente, s);
                 cont.siguiente = nuevo;
                 agregado = true;
+                talla++;
             }
             contadorPosiciones++;
         }
@@ -63,22 +65,49 @@ public class ListaCadenasEnlaceSimple implements ListaCadenas{
 
     @Override
     public void clear() {
-
+        primero = null;
+        talla = 0;
     }
 
     @Override
-    public String get(int i) {
-        return "";
+    public String get(int i) throws IndexOutOfBoundsException{
+        String cadena = "";
+        if(i >= 0 && i < size()){
+            Nodo aux = primero;
+            for(int cont = 0; cont < i; cont++){
+                aux = aux.siguiente;
+            }
+            cadena = aux.cadena;
+        }else{
+            throw new IndexOutOfBoundsException();
+        }
+        return cadena;
     }
 
     @Override
     public int indexOf(String s) {
-        return 0;
+        int posicion=-1;
+        int contadorPosiciones=0;
+        for(Nodo aux = primero; aux != null && posicion == -1; aux=aux.siguiente){
+            if(aux.cadena.equals(s)){
+                posicion = contadorPosiciones;
+            }
+            contadorPosiciones++;
+        }
+        return posicion;
     }
 
     @Override
     public int lastIndexOf(String s) {
-        return 0;
+        int posicion=-1;
+        int contadorPosiciones=0;
+        for(Nodo aux = primero; aux != null; aux = aux.siguiente){
+            if(aux.cadena.equals(s)){
+                posicion = contadorPosiciones;
+            }
+            contadorPosiciones++;
+        }
+        return posicion;
     }
 
     @Override
